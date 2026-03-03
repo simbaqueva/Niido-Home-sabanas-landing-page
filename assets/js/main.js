@@ -333,3 +333,113 @@
     });
   });
 })();
+
+/* ===================================================
+   12. CARRUSEL DE PREMIOS E INCENTIVOS
+   =================================================== */
+(function initPrizesCarousel() {
+  const track = document.getElementById('prizes-track');
+  const prevBtn = document.getElementById('prizes-prev');
+  const nextBtn = document.getElementById('prizes-next');
+  const dots = document.querySelectorAll('.prize-dot');
+
+  if (!track || !prevBtn || !nextBtn || !dots.length) return;
+
+  const total = dots.length;
+  let current = 0;
+  let autoTimer = null;
+
+  /** Mueve el carrusel al slide indicado */
+  function goTo(index) {
+    current = (index + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+
+    // ── Actualizar info-box con fade ──
+    var infoBox = document.getElementById('prizes-info-box');
+    var infoTag = document.getElementById('prize-info-tag');
+    var infoTitle = document.getElementById('prize-info-title');
+    var infoSub = document.getElementById('prize-info-sub');
+    var infoConditions = document.getElementById('prize-info-conditions');
+    var biciSpecs = document.getElementById('bici-specs');
+    var slides = track.querySelectorAll('.prize-slide');
+
+    if (infoBox && infoTag && infoTitle && infoSub && slides[current]) {
+      var slide = slides[current];
+      // Fade-out: duración coincide con transition CSS del info-box (0.45s)
+      infoBox.classList.add('fading');
+      setTimeout(function () {
+        infoTag.textContent = slide.dataset.tag || '';
+        infoTitle.textContent = slide.dataset.title || '';
+        infoSub.textContent = slide.dataset.sub || '';
+
+        // ── Condiciones opcionales ──
+        var cond = slide.dataset.conditions || '';
+        if (infoConditions) {
+          infoConditions.textContent = cond;
+          infoConditions.classList.toggle('visible', cond.length > 0);
+        }
+
+        // Fade-in
+        infoBox.classList.remove('fading');
+      }, 450);
+    }
+
+    // ── Mostrar ficha técnica solo en el slide de la bicicleta (índice 5) ──
+    if (biciSpecs) {
+      if (current === 5) {
+        biciSpecs.classList.add('visible');
+        biciSpecs.setAttribute('aria-hidden', 'false');
+      } else {
+        biciSpecs.classList.remove('visible');
+        biciSpecs.setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+
+  /** Inicia el auto-avance cada 5 segundos */
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(function () {
+      goTo(current + 1);
+    }, 5000);
+  }
+
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  /* Flechas */
+  prevBtn.addEventListener('click', function () {
+    goTo(current - 1);
+  });
+
+  nextBtn.addEventListener('click', function () {
+    goTo(current + 1);
+  });
+
+  /* Dots */
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      goTo(parseInt(dot.dataset.index, 10));
+    });
+  });
+
+  /* Swipe táctil */
+  let touchStartX = 0;
+  track.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      goTo(diff > 0 ? current + 1 : current - 1);
+      startAuto();
+    }
+  }, { passive: true });
+
+  /* Inicializar — sin auto-avance */
+  goTo(0);
+})();

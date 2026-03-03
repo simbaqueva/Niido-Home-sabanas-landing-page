@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -211,10 +211,7 @@
             <div class="text-camel text-xs uppercase tracking-widest mb-1">Colección</div>
             <div class="font-display text-base font-bold">Alma de Mar</div>
           </div>
-          <div class="hero-badge hero-badge-2 text-center">
-            <div class="text-yellow-400 text-xs mb-0.5">★★★★★</div>
-            <div class="text-xs">+200 clientes felices</div>
-          </div>
+
         </div>
 
       </div>
@@ -288,12 +285,7 @@
             <span class="font-script text-4xl lg:text-5xl text-camel-dark">Alma de Mar</span>
           </h3>
 
-          <!-- Estrellas -->
-          <div class="flex items-center gap-2 mb-5">
-            <div class="stars text-lg">★★★★★</div>
-            <span class="text-sm text-gray-500">4.9 / 5 — <span class="text-camel font-semibold">+200
-                reseñas</span></span>
-          </div>
+
 
           <!-- Descripción corta -->
           <p class="text-gray-600 text-sm leading-relaxed mb-6">
@@ -325,23 +317,11 @@
 
           <!-- Selector de talla -->
           <div class="mb-6">
-            <p class="text-xs font-bold text-graphite uppercase tracking-wider mb-3">Selecciona tu talla:</p>
+            <p class="text-xs font-bold text-graphite uppercase tracking-wider mb-3">Talla disponible:</p>
             <div class="flex flex-wrap gap-2">
               <button
-                class="size-option px-5 py-2 rounded-full border-2 border-camel/30 text-sm font-semibold text-gray-600 hover:border-camel hover:text-camel transition-all">
-                Sencillo
-              </button>
-              <button
-                class="size-option px-5 py-2 rounded-full border-2 border-camel/30 text-sm font-semibold text-gray-600 hover:border-camel hover:text-camel transition-all">
-                Doble
-              </button>
-              <button
                 class="size-option active px-5 py-2 rounded-full border-2 border-camel text-sm font-semibold text-camel bg-camel/10 transition-all">
-                Queen
-              </button>
-              <button
-                class="size-option px-5 py-2 rounded-full border-2 border-camel/30 text-sm font-semibold text-gray-600 hover:border-camel hover:text-camel transition-all">
-                King
+                Doble
               </button>
             </div>
           </div>
@@ -449,10 +429,7 @@
           <div class="accordion-body">
             <div class="accordion-content">
               <ul class="space-y-2">
-                <li>• <strong>Sencillo:</strong> 150 × 200 cm + 1 funda 50×70 cm</li>
                 <li>• <strong>Doble:</strong> 180 × 200 cm + 2 fundas 50×70 cm</li>
-                <li>• <strong>Queen:</strong> 200 × 220 cm + 2 fundas 50×70 cm</li>
-                <li>• <strong>King:</strong> 220 × 240 cm + 2 fundas 50×70 cm</li>
               </ul>
             </div>
           </div>
@@ -505,64 +482,158 @@
       <div class="text-center mb-14 reveal">
         <div class="promo-badge">🎉 Promo Vigente — Edición Limitada</div>
         <h2 class="promo-title text-4xl lg:text-6xl mb-4">
-          Gran Campaña <span class="highlight">Playita Más Ñapa</span>
+          Gran Campaña <span class="highlight">Colección Alma de Mar</span>
         </h2>
         <p class="promo-desc max-w-2xl mx-auto">
-          Compra tu Edredón Alma de Mar y recibe un código único que puede hacerte beneficiario de increíbles premios.
-          El sueño de tus vacaciones puede estar en tu próxima noche de descanso.
+          Compra tu Edredón Alma de Mar.
         </p>
       </div>
 
-
-
-      <!-- Premios en juego -->
+      <!-- ===== CARRUSEL DE PREMIOS E INCENTIVOS ===== -->
       <div class="grid lg:grid-cols-2 gap-10 items-start">
 
-        <!-- Premio principal: Viaje Santa Marta -->
+        <!-- Columna izquierda: Carrusel grande -->
         <div class="reveal-left">
-          <p class="text-xs uppercase tracking-widest text-camel font-bold mb-4">🏆 Premio Estrella</p>
+          <p class="text-xs uppercase tracking-widest text-camel font-bold mb-4">🏆 Premios e Incentivos</p>
 
-          <div class="rounded-2xl overflow-hidden mb-5 relative shadow-2xl">
-            <img src="assets/images/promo-viaje.jpg" alt="Estadía 5 días 4 noches en Santa Marta"
-              class="w-full h-56 sm:h-72 object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
-              <div>
-                <p class="text-gold text-xs uppercase tracking-widest font-bold mb-1">¡Premio Mayor!</p>
-                <h3 class="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
-                  Estadía en Santa Marta<br />
-                  <span class="font-script text-4xl text-gold">5 Días · 4 Noches</span>
-                </h3>
+          <!-- Wrapper carrusel -->
+          <div class="prizes-carousel" id="prizes-carousel">
+
+            <!-- Track (slides) — solo imágenes -->
+            <div class="prizes-track" id="prizes-track">
+
+              <!-- SLIDE 1: Premio Mayor -->
+              <div class="prize-slide" data-tag="🏆 Premio Mayor" data-title="Estadía en Santa Marta"
+                data-sub="5 Días · 4 Noches">
+                <div class="prize-slide-img-wrap">
+                  <img src="assets/images/promo-viaje.jpg" alt="Estadía 5 días 4 noches en Santa Marta"
+                    class="prize-slide-img" loading="lazy" />
+                </div>
               </div>
+
+              <!-- SLIDE 2: Camioneta Sportage -->
+              <div class="prize-slide" data-tag="🚙 Premio Adicional" data-title="Camioneta Sportage"
+                data-sub="Premio adicional de la campaña">
+                <div class="prize-slide-img-wrap">
+                  <img src="assets/images/promo-camioneta.png" alt="Camioneta Sportage"
+                    class="prize-slide-img prize-slide-img--contain" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- SLIDE 3: Bici Playera -->
+              <div class="prize-slide" data-tag="🚲 Premio Adicional" data-title="Bici Playera"
+                data-sub="Ya que vas para la playa… ¡que mejor en bici!">
+                <div class="prize-slide-img-wrap">
+                  <img src="assets/images/promo-bici.png" alt="Bici Playera"
+                    class="prize-slide-img prize-slide-img--contain" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- SLIDE 4: Mes 1 — Pesquera Jaramillo -->
+              <div class="prize-slide" data-tag="📅 Incentivo Mes 1 SI VAS AL DÍA EN TUS CUOTAS"
+                data-title="Cena para 2" data-sub="Pesquera Jaramillo de Bogotá— Todo incluido"
+                data-conditions="⚠️ Aplica condiciones y restricciones.">
+                <div class="prize-slide-img-wrap">
+                  <img src="assets/images/incentivos/mes1-pesquera-principal.webp" alt="Pesquera Jaramillo"
+                    class="prize-slide-img" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- SLIDE 5: Mes 2 — Hotel Ricaurte -->
+              <div class="prize-slide" data-tag="📅 Incentivo Mes 2 SI VAS AL DÍA EN TUS CUOTAS"
+                data-title="Noche de Hotel" data-sub="Ricaurte, Cundinamarca — Desayuno incluido"
+                data-conditions="⚠️ Aplica términos y condiciones (T&C).">
+                <div class="prize-slide-img-wrap">
+                  <img src="assets/images/incentivos/mes2-hotel-principal.jpg" alt="Hotel Ricaurte Cundinamarca"
+                    class="prize-slide-img" loading="lazy" />
+                </div>
+              </div>
+
+              <!-- SLIDE 6: Mes 3 — Bicicleta Todo Terreno -->
+              <div class="prize-slide" data-tag="📅 Incentivo Mes 3 SI VAS AL DÍA EN TUS CUOTAS"
+                data-title="Bicicleta Todo Terreno" data-sub="Alta calidad para conquistar cualquier camino">
+                <div class="prize-slide-img-wrap">
+                  <img src="assets/images/incentivos/mes3-bicicleta-principal.png" alt="Bicicleta Todo Terreno"
+                    class="prize-slide-img prize-slide-img--contain" loading="lazy" />
+                </div>
+              </div>
+
+            </div><!-- /prizes-track -->
+
+            <!-- Flechas de navegación -->
+            <button class="prizes-nav prizes-prev" id="prizes-prev" aria-label="Premio anterior">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="prizes-nav prizes-next" id="prizes-next" aria-label="Premio siguiente">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Dots indicadores -->
+            <div class="prizes-dots" id="prizes-dots">
+              <button class="prize-dot active" data-index="0" aria-label="Premio 1"></button>
+              <button class="prize-dot" data-index="1" aria-label="Premio 2"></button>
+              <button class="prize-dot" data-index="2" aria-label="Premio 3"></button>
+              <button class="prize-dot" data-index="3" aria-label="Incentivo Mes 1"></button>
+              <button class="prize-dot" data-index="4" aria-label="Incentivo Mes 2"></button>
+              <button class="prize-dot" data-index="5" aria-label="Incentivo Mes 3"></button>
             </div>
+
+          </div><!-- /prizes-carousel -->
+
+          <!-- Info del premio activo — aparece debajo con fade -->
+          <div class="prizes-info-box" id="prizes-info-box">
+            <span class="prize-info-tag" id="prize-info-tag">🏆 Premio Mayor</span>
+            <h3 class="prize-info-title" id="prize-info-title">Estadía en Santa Marta</h3>
+            <p class="prize-info-sub font-script" id="prize-info-sub">5 Días · 4 Noches</p>
+            <!-- Aviso de condiciones — solo visible en slides que lo requieran -->
+            <p class="prize-info-conditions" id="prize-info-conditions" aria-live="polite"></p>
           </div>
 
-          <!-- Lista premios adicionales -->
-          <div class="space-y-3">
-            <div class="prize-item">
-              <img src="assets/images/promo-camioneta.png" alt="Camioneta Sportage" class="prize-img" />
-              <div>
-                <p class="prize-name">Camioneta Sportage</p>
-                <p class="prize-sub">Premio adicional de la campaña</p>
-              </div>
-            </div>
-            <div class="prize-item">
-              <img src="assets/images/promo-bici.png" alt="Bici playera" class="prize-img" />
-              <div>
-                <p class="prize-name">Bici Playera</p>
-                <p class="prize-sub">Ya que vas para la playa… ¡que mejor en bici!</p>
-              </div>
-            </div>
+          <!-- Ficha técnica Bicicleta Todo Terreno — visible solo en slide 5 -->
+          <div id="bici-specs" class="bici-specs-panel" aria-hidden="true">
+            <p class="bici-specs-title">
+              <i class="fa-solid fa-list-check"></i> Ficha Técnica
+            </p>
+            <ul class="bici-specs-list">
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Marco Roca</strong> en acero liviano con cableado interno mixto</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Suspensión con bloqueo</strong> — mejora el rendimiento en cualquier terreno</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Rin 29</strong> — mayor tracción y estabilidad</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Grupo WG SunRun 6 velocidades</strong> — cambio preciso y confiable</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Frenos de disco mecánicos</strong> — confianza al frenar</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>Pedales de teflón livianos</strong> — comodidad al rodar</span>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Cómo funciona + precio -->
+        </div><!-- /columna izquierda -->
+
+
+        <!-- Columna derecha: Cómo funciona + precio -->
         <div class="reveal-right">
+
           <p class="text-xs uppercase tracking-widest text-camel font-bold mb-4">📋 ¿Cómo funciona?</p>
 
           <div class="space-y-3 mb-8">
             <div class="promo-step">
               <div class="step-number">1</div>
-              <p class="step-text"><strong>Compra tu Edredón Alma de Mar</strong> y completa tu pedido.</p>
+              <p class="step-text"><strong>Compra tu Edredón Alma de Mar</strong></p>
             </div>
             <div class="promo-step">
               <div class="step-number">2</div>
@@ -600,183 +671,24 @@
                 🛏️ <strong>Tu edredón se entrega con el segundo pago del primer mes</strong> — ¡sin esperar más!
               </p>
             </div>
-            <p class="price-note mt-3">* El pago a cuotas aplica según acuerdo con el vendedor</p>
           </div>
+        </div><!-- /columna derecha -->
+
+      </div><!-- /grid -->
+
+      <!-- Nota legal -->
+      <div class="mt-8 text-center reveal">
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-5 py-3">
+          <i class="fa-solid fa-circle-info text-gold text-sm"></i>
+          <p class="text-white/70 text-xs font-medium">"Recorta y guarda tu código — ¡puedes ser el próximo
+            beneficiario!"</p>
         </div>
-
-      </div>
-
-      <!-- ===== INCENTIVOS MENSUALES ===== -->
-      <div class="mt-16 reveal">
-
-        <!-- Encabezado bloque incentivos -->
-        <div class="text-center mb-10">
-          <p class="text-gold text-xs uppercase tracking-widest font-bold mb-2">🎁 Si vas al día en tus cuotas…</p>
-          <h3 class="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
-            Incentivos <span class="font-script text-4xl text-gold">Mes a Mes</span>
-          </h3>
-          <p class="text-white/60 text-sm mt-3 max-w-xl mx-auto leading-relaxed">
-            Cada mes que mantengas tus cuotas al día participas automáticamente para ganar un incentivo exclusivo. ¡Tres
-            oportunidades de premio en la campaña!
-          </p>
-        </div>
-
-        <!-- Tarjetas de los 3 incentivos -->
-        <div class="grid sm:grid-cols-3 gap-6">
-
-          <!-- ======= MES 1 — Pesquera Jaramillo ======= -->
-          <div class="incentive-card reveal" style="transition-delay:0s">
-            <div class="incentive-month">Mes 1</div>
-
-            <!-- Imagen principal del incentivo -->
-            <div class="incentive-gallery">
-              <div class="incentive-main-wrap">
-                <img id="inc-main-1" class="incentive-main-img"
-                  src="assets/images/incentivos/mes1-pesquera-principal.webp" alt="Pesquera Jaramillo — Vista principal"
-                  loading="lazy" />
-              </div>
-
-              <!-- Carrusel de interiores -->
-              <div class="incentive-thumbs" role="list" aria-label="Galería Pesquera Jaramillo">
-                <button class="inc-thumb active" data-target="inc-main-1"
-                  data-src="assets/images/incentivos/mes1-pesquera-principal.webp"
-                  data-alt="Pesquera Jaramillo — Vista principal" aria-label="Ver imagen principal" aria-pressed="true">
-                  <img src="assets/images/incentivos/mes1-pesquera-principal.webp" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-1"
-                  data-src="assets/images/incentivos/mes1-pesquera-interior-1.webp"
-                  data-alt="Pesquera Jaramillo — Interior 1" aria-label="Ver interior 1" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes1-pesquera-interior-1.webp" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-1"
-                  data-src="assets/images/incentivos/mes1-pesquera-interior-2.jpg"
-                  data-alt="Pesquera Jaramillo — Interior 2" aria-label="Ver interior 2" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes1-pesquera-interior-2.jpg" alt="" loading="lazy" />
-                </button>
-              </div>
-            </div>
-
-            <h4 class="incentive-title">Cena para 2</h4>
-            <p class="incentive-place">Pesquera Jaramillo</p>
-            <p class="incentive-desc">
-              Una noche romántica frente al mar. Cena completa para dos personas en la Pesquera Jaramillo Playa.
-              <strong>¡Todo pago!</strong>
-            </p>
-            <div class="incentive-badge">
-              <i class="fa-solid fa-utensils mr-1"></i> Todo incluido
-            </div>
-          </div>
-
-          <!-- ======= MES 2 — Hotel Ricaurte ======= -->
-          <div class="incentive-card reveal" style="transition-delay:0.15s">
-            <div class="incentive-month">Mes 2</div>
-
-            <!-- Imagen principal del incentivo -->
-            <div class="incentive-gallery">
-              <div class="incentive-main-wrap">
-                <img id="inc-main-2" class="incentive-main-img" src="assets/images/incentivos/mes2-hotel-principal.jpg"
-                  alt="Hotel Ricaurte Cundinamarca — Vista aérea de la piscina" loading="lazy" />
-              </div>
-
-              <!-- Carrusel de interiores -->
-              <div class="incentive-thumbs" role="list" aria-label="Galería Hotel Ricaurte">
-                <button class="inc-thumb active" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-principal.jpg"
-                  data-alt="Hotel Ricaurte — Vista aérea de la piscina" aria-label="Ver imagen principal"
-                  aria-pressed="true">
-                  <img src="assets/images/incentivos/mes2-hotel-principal.jpg" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-exterior.png" data-alt="Hotel Ricaurte — Vista exterior"
-                  aria-label="Ver vista exterior" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes2-hotel-exterior.png" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-interior-1.jpg" data-alt="Hotel Ricaurte — Interior 1"
-                  aria-label="Ver interior 1" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes2-hotel-interior-1.jpg" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-interior-2.jpg" data-alt="Hotel Ricaurte — Interior 2"
-                  aria-label="Ver interior 2" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes2-hotel-interior-2.jpg" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-interior-3.jpg" data-alt="Hotel Ricaurte — Interior 3"
-                  aria-label="Ver interior 3" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes2-hotel-interior-3.jpg" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-interior-4.jpg" data-alt="Hotel Ricaurte — Interior 4"
-                  aria-label="Ver interior 4" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes2-hotel-interior-4.jpg" alt="" loading="lazy" />
-                </button>
-                <button class="inc-thumb" data-target="inc-main-2"
-                  data-src="assets/images/incentivos/mes2-hotel-interior-5.jpg" data-alt="Hotel Ricaurte — Interior 5"
-                  aria-label="Ver interior 5" aria-pressed="false">
-                  <img src="assets/images/incentivos/mes2-hotel-interior-5.jpg" alt="" loading="lazy" />
-                </button>
-              </div>
-            </div>
-
-            <h4 class="incentive-title">Noche de Hotel</h4>
-            <p class="incentive-place">Ricaurte, Cundinamarca</p>
-            <p class="incentive-desc">
-              Escápate del estrés. Una noche de relajación con <strong>desayuno incluido</strong>.
-              Sales el sábado y regresas el domingo.
-            </p>
-            <div class="incentive-badge">
-              <i class="fa-solid fa-bed mr-1"></i> 1 noche · Desayuno incl.
-            </div>
-          </div>
-
-          <!-- ======= MES 3 — Bicicleta Todo Terreno ======= -->
-          <div class="incentive-card reveal" style="transition-delay:0.3s">
-            <div class="incentive-month">Mes 3</div>
-
-            <!-- Imagen principal del incentivo -->
-            <div class="incentive-gallery">
-              <div class="incentive-main-wrap">
-                <img id="inc-main-3" class="incentive-main-img"
-                  src="assets/images/incentivos/mes3-bicicleta-principal.png"
-                  alt="Bicicleta Todo Terreno — Premio Mes 3" loading="lazy" />
-              </div>
-              <!-- Sin fotos de interiores para la bici: solo la principal -->
-              <div class="incentive-thumbs" role="list" aria-label="Galería Bicicleta Todo Terreno">
-                <button class="inc-thumb active" data-target="inc-main-3"
-                  data-src="assets/images/incentivos/mes3-bicicleta-principal.png"
-                  data-alt="Bicicleta Todo Terreno — Vista principal" aria-label="Ver imagen principal"
-                  aria-pressed="true">
-                  <img src="assets/images/incentivos/mes3-bicicleta-principal.png" alt="" loading="lazy" />
-                </button>
-              </div>
-            </div>
-
-            <h4 class="incentive-title">Bicicleta</h4>
-            <p class="incentive-place">Todo Terreno</p>
-            <p class="incentive-desc">
-              Para los que aman la aventura. Una <strong>bicicleta todo terreno</strong> de alta calidad
-              lista para conquistar cualquier camino.
-            </p>
-            <div class="incentive-badge">
-              <i class="fa-solid fa-bicycle mr-1"></i> Premio físico
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Nota legal / aviso -->
-        <div class="mt-8 text-center">
-          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-5 py-3">
-            <i class="fa-solid fa-circle-info text-gold text-sm"></i>
-            <p class="text-white/70 text-xs font-medium">"Recorta y guarda tu código — ¡puedes ser el próximo
-              beneficiario!"</p>
-          </div>
-        </div>
-
       </div>
 
     </div>
+  </section>
+
+
   </section>
 
 
@@ -919,7 +831,6 @@
             <li><a href="#product-gallery" class="footer-link">Ver Edredón</a></li>
             <li><a href="#product-features" class="footer-link">Características</a></li>
             <li><a href="#product-details" class="footer-link">Info Técnica</a></li>
-            <li><a href="#testimonials" class="footer-link">Reseñas</a></li>
           </ul>
         </div>
 
@@ -927,7 +838,7 @@
         <div>
           <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Promoción</h4>
           <ul class="space-y-2">
-            <li><a href="#promo-section" class="footer-link">Campaña Playita Más Ñapa</a></li>
+            <li><a href="#promo-section" class="footer-link">Gran Campaña Colección Alma de Mar</a></li>
             <li><a href="https://wa.me/573102439078" target="_blank" rel="noopener" class="footer-link">Contactar por
                 WhatsApp</a></li>
           </ul>

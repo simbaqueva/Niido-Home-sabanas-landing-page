@@ -1539,3 +1539,332 @@ img {
     height: 45px;
   }
 }
+
+/* ============================================================
+   CARRUSEL DE PREMIOS E INCENTIVOS
+   ============================================================ */
+.prizes-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  width: 100%;
+}
+
+.prizes-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.prize-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.prize-slide-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--nh-charcoal);
+  width: 100%;
+}
+
+.prize-slide-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+@media (max-width: 640px) {
+  .prize-slide-img {
+    height: 260px;
+  }
+}
+
+.prize-slide-img--contain {
+  object-fit: contain;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  padding: 1.5rem;
+}
+
+.prize-slide-img-wrap:hover .prize-slide-img {
+  transform: scale(1.04);
+}
+
+.prize-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem 1.5rem;
+}
+
+.prize-slide-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--nh-gold), var(--nh-camel));
+  color: #1a1a1a;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 0.6rem;
+  width: fit-content;
+}
+
+.prize-slide-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.prize-slide-sub {
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--nh-gold);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Flechas de navegación */
+.prizes-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.25s;
+  z-index: 10;
+}
+
+.prizes-nav:hover {
+  background: rgba(184, 147, 90, 0.75);
+  border-color: var(--nh-camel);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prizes-prev {
+  left: 0.75rem;
+}
+
+.prizes-next {
+  right: 0.75rem;
+}
+
+/* Dots indicadores */
+.prizes-dots {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.45rem;
+  z-index: 10;
+}
+
+.prize-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s, width 0.3s;
+}
+
+.prize-dot.active {
+  background: var(--nh-gold);
+  width: 22px;
+  border-radius: 4px;
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   BLOQUE DE INFO DEL PREMIO — debajo del carrusel
+   ============================================================ */
+.prizes-info-box {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estado de fade-out (aplicado por JS antes de cambiar el texto) */
+.prizes-info-box.fading {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.prize-info-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--nh-gold), var(--nh-camel));
+  color: #1a1a1a;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 0.65rem;
+}
+
+.prize-info-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin: 0 0 0.35rem;
+}
+
+.prize-info-sub {
+  font-family: var(--font-script);
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  color: var(--nh-gold);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ============================================================
+   FICHA TÉCNICA — BICICLETA TODO TERRENO
+   Panel que aparece debajo del info-box solo cuando el slide
+   de la bici (índice 5) está activo en el carrusel de premios.
+   ============================================================ */
+.bici-specs-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.45s ease,
+    margin-top 0.45s ease;
+  margin-top: 0;
+  pointer-events: none;
+}
+
+.bici-specs-panel.visible {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1rem;
+  pointer-events: auto;
+}
+
+.bici-specs-title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--nh-camel);
+  margin: 0 0 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bici-specs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.bici-specs-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.45;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.bici-specs-list li:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.bici-specs-list li i {
+  color: var(--nh-gold);
+  font-size: 0.78rem;
+  flex-shrink: 0;
+  margin-top: 0.18rem;
+}
+
+.bici-specs-list li strong {
+  color: var(--nh-gold);
+  font-weight: 600;
+}
+
+/* ============================================================
+   AVISO DE CONDICIONES / T&C — CARRUSEL DE PREMIOS
+   Aparece debajo del subtitle en el info-box cuando el slide
+   tiene data-conditions definido (Mes 1 y Mes 2).
+   ============================================================ */
+.prize-info-conditions {
+  display: block;
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0.9rem;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-left: 3px solid #FFC107;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+
+  /* Oculto por defecto con transición */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  transition: max-height 0.4s ease,
+    opacity 0.35s ease,
+    padding 0.3s ease,
+    margin-top 0.3s ease;
+}
+
+.prize-info-conditions.visible {
+  max-height: 100px;
+  opacity: 1;
+  padding: 0.5rem 0.9rem;
+  margin-top: 0.75rem;
+}
