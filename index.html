@@ -151,6 +151,18 @@
   <section id="hero" class="pt-16 lg:pt-20">
     <div class="hero-bg"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 xl:py-32">
+
+      <!-- Logo destacado Hero -->
+      <div class="hero-logo-wrap reveal" aria-label="Niido Home">
+        <img src="assets/images/logo.png" alt="Niido Home — Tu lugar, tu espacio, tu mundo" class="hero-logo-featured"
+          loading="eager" />
+        <div class="hero-logo-divider">
+          <span class="hero-logo-divider-line"></span>
+          <span class="hero-logo-divider-text">✦ Colección Alma de Mar 2026 ✦</span>
+          <span class="hero-logo-divider-line"></span>
+        </div>
+      </div>
+
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
         <!-- Contenido -->
@@ -234,26 +246,26 @@
         <div class="reveal-left">
           <!-- Imagen principal -->
           <div class="gallery-main mb-4">
-            <img id="gallery-main-img" src="assets/images/edredon-6.jpg" alt="Edredón Alma de Mar — Niido Home"
-              loading="lazy" />
+            <img id="gallery-main-img" src="assets/images/edredon-crema.jpg"
+              alt="Edredón Alma de Mar Crema — Niido Home" loading="lazy" />
           </div>
-          <!-- Thumbnails -->
-          <div class="grid grid-cols-5 gap-2 sm:gap-3">
-            <div class="gallery-thumb active" data-src="assets/images/edredon-6.jpg"
-              data-alt="Edredón Alma de Mar en habitación">
-              <img src="assets/images/edredon-6.jpg" alt="Vista 1 del edredón" loading="lazy" />
+          <!-- Thumbnails — 4 colores disponibles -->
+          <div class="grid grid-cols-4 gap-2 sm:gap-3">
+            <div class="gallery-thumb active" data-src="assets/images/edredon-crema.jpg"
+              data-alt="Edredón Alma de Mar — Color Crema">
+              <img src="assets/images/edredon-crema.jpg" alt="Edredón color Crema" loading="lazy" />
             </div>
-            <div class="gallery-thumb" data-src="assets/images/edredon-1.jpg" data-alt="Edredón color neutral">
-              <img src="assets/images/edredon-1.jpg" alt="Vista 2 del edredón" loading="lazy" />
+            <div class="gallery-thumb" data-src="assets/images/edredon-gris.jpg"
+              data-alt="Edredón Alma de Mar — Color Gris Oscuro">
+              <img src="assets/images/edredon-gris.jpg" alt="Edredón color Gris Oscuro" loading="lazy" />
             </div>
-            <div class="gallery-thumb" data-src="assets/images/edredon-2.jpg" data-alt="Edredón beige">
-              <img src="assets/images/edredon-2.jpg" alt="Vista 3 del edredón" loading="lazy" />
+            <div class="gallery-thumb" data-src="assets/images/edredon-verde.jpg"
+              data-alt="Edredón Alma de Mar — Color Verde Jade">
+              <img src="assets/images/edredon-verde.jpg" alt="Edredón color Verde Jade" loading="lazy" />
             </div>
-            <div class="gallery-thumb" data-src="assets/images/edredon-3.jpg" data-alt="Edredón detalle textura">
-              <img src="assets/images/edredon-3.jpg" alt="Vista 4 del edredón" loading="lazy" />
-            </div>
-            <div class="gallery-thumb" data-src="assets/images/edredon-4.jpg" data-alt="Edredón en cama">
-              <img src="assets/images/edredon-4.jpg" alt="Vista 5 del edredón" loading="lazy" />
+            <div class="gallery-thumb" data-src="assets/images/edredon-azul.jpg"
+              data-alt="Edredón Alma de Mar — Color Azul Claro">
+              <img src="assets/images/edredon-azul.jpg" alt="Edredón color Azul Claro" loading="lazy" />
             </div>
           </div>
           <p class="text-xs text-gray-400 text-center mt-3">
@@ -334,16 +346,15 @@
             </div>
           </div>
 
+
           <!-- CTA -->
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="#promo-section" class="btn-cta flex-1 justify-center">
-              <i class="fa-solid fa-qrcode"></i> Escanea para mayor información
-            </a>
             <a href="https://wa.me/573102439078?text=Hola,%20quiero%20informaci%C3%B3n%20del%20Edred%C3%B3n%20Alma%20de%20Mar"
-              target="_blank" rel="noopener" class="btn-outline flex-1 justify-center text-sm">
+              target="_blank" rel="noopener" class="btn-cta flex-1 justify-center text-sm">
               <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
           </div>
+
 
           <!-- Promo tag -->
           <div class="mt-5 flex items-center gap-3 p-3 bg-amber-50 border border-amber-200 rounded-xl">
@@ -559,12 +570,12 @@
             </div>
             <div class="promo-step">
               <div class="step-number">3</div>
-              <p class="step-text"><strong>Escanea el QR</strong> para conocer todos los detalles de nuestra campaña.
-              </p>
+              <p class="step-text"><strong>Mantente al día</strong> en el pago de tus cuotas cada mes y participa
+                automáticamente en los incentivos mensuales.</p>
             </div>
             <div class="promo-step">
               <div class="step-number">4</div>
-              <p class="step-text"><strong>Guarda tu código</strong> — ¡podrías ser el próximo beneficiario!</p>
+              <p class="step-text"><strong>Guarda tu código</strong> — ¡podrías ser el próximo gran beneficiario!</p>
             </div>
           </div>
 
@@ -588,34 +599,86 @@
 
       </div>
 
-      <!-- QR destacado dentro de promo -->
+      <!-- ===== INCENTIVOS MENSUALES ===== -->
       <div class="mt-16 reveal">
-        <div
-          class="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm border border-white/15 rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center gap-8">
-          <!-- QR imagen -->
-          <div class="flex-shrink-0">
-            <div class="bg-white rounded-2xl p-4 shadow-2xl">
-              <img src="assets/images/qr-promo.png" alt="Código QR campaña Niido Home"
-                class="w-44 h-44 sm:w-52 sm:h-52 object-contain" />
+
+        <!-- Encabezado bloque incentivos -->
+        <div class="text-center mb-10">
+          <p class="text-gold text-xs uppercase tracking-widest font-bold mb-2">🎁 Si vas al día en tus cuotas…</p>
+          <h3 class="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
+            Incentivos <span class="font-script text-4xl text-gold">Mes a Mes</span>
+          </h3>
+          <p class="text-white/60 text-sm mt-3 max-w-xl mx-auto leading-relaxed">
+            Cada mes que mantengas tus cuotas al día participas automáticamente para ganar un incentivo exclusivo. ¡Tres
+            oportunidades de premio en la campaña!
+          </p>
+        </div>
+
+        <!-- Tarjetas de los 3 incentivos -->
+        <div class="grid sm:grid-cols-3 gap-6">
+
+          <!-- MES 1 -->
+          <div class="incentive-card reveal" style="transition-delay:0s">
+            <div class="incentive-month">Mes 1</div>
+            <div class="incentive-icon-wrap">
+              <span class="incentive-emoji">🍽️</span>
+            </div>
+            <h4 class="incentive-title">Cena para 2</h4>
+            <p class="incentive-place">Pesquera Jaramillo</p>
+            <p class="incentive-desc">
+              Una noche romántica frente al mar. Cena completa para dos personas en la Pesquera Jaramillo Playa.
+              <strong>¡Todo pago!</strong>
+            </p>
+            <div class="incentive-badge">
+              <i class="fa-solid fa-utensils mr-1"></i> Todo incluido
             </div>
           </div>
-          <!-- Texto al lado del QR -->
-          <div class="text-center sm:text-left">
-            <p class="text-gold text-xs uppercase tracking-widest font-bold mb-2">📲 Escanea Ahora</p>
-            <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight">
-              Conoce todos los detalles<br />
-              <span class="font-script text-4xl text-gold">de la campaña</span>
-            </h3>
-            <p class="text-white/65 text-sm leading-relaxed mb-5">
-              Apunta la cámara de tu celular al código QR para acceder a nuestra plataforma, verificar tu código y
-              mantenerte al tanto de la campaña.
-            </p>
-            <div class="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-xl px-4 py-2">
-              <i class="fa-solid fa-circle-info text-gold text-sm"></i>
-              <p class="text-white/80 text-xs font-medium">"Recorta y guarda tu código ¡puedes ser el beneficiario!"</p>
+
+          <!-- MES 2 -->
+          <div class="incentive-card reveal" style="transition-delay:0.15s">
+            <div class="incentive-month">Mes 2</div>
+            <div class="incentive-icon-wrap">
+              <span class="incentive-emoji">🏨</span>
             </div>
+            <h4 class="incentive-title">Noche de Hotel</h4>
+            <p class="incentive-place">Ricaurte, Cundinamarca</p>
+            <p class="incentive-desc">
+              Escápate del estrés. Una noche de relajación con <strong>desayuno incluido</strong>.
+              Sales el sábado y regresas el domingo.
+            </p>
+            <div class="incentive-badge">
+              <i class="fa-solid fa-bed mr-1"></i> 1 noche · Desayuno incl.
+            </div>
+          </div>
+
+          <!-- MES 3 -->
+          <div class="incentive-card reveal" style="transition-delay:0.3s">
+            <div class="incentive-month">Mes 3</div>
+            <div class="incentive-icon-wrap">
+              <span class="incentive-emoji">🚵</span>
+            </div>
+            <h4 class="incentive-title">Bicicleta</h4>
+            <p class="incentive-place">Todo Terreno</p>
+            <p class="incentive-desc">
+              Para los que aman la aventura. Una <strong>bicicleta todo terreno</strong> de alta calidad
+              lista para conquistar cualquier camino.
+            </p>
+            <div class="incentive-badge">
+              <i class="fa-solid fa-bicycle mr-1"></i> Premio físico
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Nota legal / aviso -->
+        <div class="mt-8 text-center">
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-5 py-3">
+            <i class="fa-solid fa-circle-info text-gold text-sm"></i>
+            <p class="text-white/70 text-xs font-medium">"Recorta y guarda tu código — ¡puedes ser el próximo
+              beneficiario!"</p>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -741,7 +804,7 @@
 
         <!-- Brand -->
         <div class="lg:col-span-2">
-          <img src="assets/images/logo.png" alt="Niido Home" class="footer-logo h-12 mb-4" />
+          <img src="assets/images/logo.png" alt="Niido Home" class="footer-logo footer-logo-white mb-4" />
           <p class="text-sm text-white/50 leading-relaxed max-w-sm">
             Tu lugar, tu espacio, tu mundo. Creamos experiencias de confort premium para transformar tu hogar en el
             refugio perfecto.
@@ -790,7 +853,7 @@
   <!-- Sticky CTA Móvil -->
   <div id="sticky-cta" class="sticky-cta" style="transform:translateY(100%); transition: transform 0.3s ease;">
     <a href="#promo-section" class="btn-cta text-sm flex-1 justify-center">
-      <i class="fa-solid fa-qrcode"></i> Ver Promo & QR
+      <i class="fa-solid fa-gift"></i> Ver Promo
     </a>
     <a href="https://wa.me/573102439078" target="_blank" rel="noopener"
       class="btn-outline text-sm flex-1 justify-center">

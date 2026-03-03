@@ -69,6 +69,82 @@ img {
 }
 
 /* ============================================================
+   LOGO DESTACADO — HERO
+   ============================================================ */
+.hero-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-logo-featured {
+  height: clamp(96px, 15vw, 165px);
+  width: auto;
+  max-width: 500px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 32px rgba(184, 147, 90, 0.38));
+  animation: logoEntrance 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes logoEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-logo-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.hero-logo-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--nh-camel), transparent);
+}
+
+.hero-logo-divider-text {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--nh-camel);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   LOGO FOOTER — VERSION BLANCA
+   ============================================================ */
+.footer-logo-white {
+  height: 78px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.90;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.footer-logo-white:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) sepia(0.3) saturate(2) hue-rotate(5deg);
+}
+
+/* ============================================================
    HEADER / NAV
    ============================================================ */
 #site-header {
@@ -1195,4 +1271,127 @@ img {
   opacity: 0.7;
   cursor: not-allowed;
   transform: none !important;
+}
+
+/* ============================================================
+   INCENTIVOS MENSUALES
+   ============================================================ */
+.incentive-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.incentive-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nh-gold), var(--nh-camel), var(--nh-gold));
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  border-radius: 3px 3px 0 0;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.incentive-card:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(201, 168, 76, 0.45);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(201, 168, 76, 0.2);
+}
+
+.incentive-month {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--nh-gold), var(--nh-camel));
+  color: var(--nh-charcoal);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+.incentive-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.15);
+  border: 2px solid rgba(201, 168, 76, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  transition: transform 0.4s ease, background 0.3s;
+}
+
+.incentive-card:hover .incentive-icon-wrap {
+  transform: scale(1.12) rotate(-6deg);
+  background: rgba(201, 168, 76, 0.25);
+}
+
+.incentive-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.incentive-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+.incentive-place {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nh-gold);
+  margin-bottom: 1rem;
+}
+
+.incentive-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.incentive-desc strong {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.incentive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--nh-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
 }
