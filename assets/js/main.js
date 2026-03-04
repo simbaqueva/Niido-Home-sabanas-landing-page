@@ -387,9 +387,9 @@
       }, 450);
     }
 
-    // ── Mostrar ficha técnica solo en el slide de la bicicleta (índice 5) ──
+    // ── Mostrar ficha técnica solo en el slide de la bicicleta (índice 2) ──
     if (biciSpecs) {
-      if (current === 5) {
+      if (current === 2) {
         biciSpecs.classList.add('visible');
         biciSpecs.setAttribute('aria-hidden', 'false');
       } else {
@@ -442,4 +442,114 @@
 
   /* Inicializar — sin auto-avance */
   goTo(0);
+})();
+
+/* ===================================================
+   13. VIDEO PROMOCIONAL — Bucle silencioso / Modo activo
+       • Por defecto: autoplay, muted, loop, SIN controles
+       • Al hacer clic / tap en el OVERLAY: activa sonido,
+         muestra controles nativos, quita el bucle
+       • Al presionar X o al terminar el video:
+         vuelve al bucle silencioso (resetea al inicio)
+   =================================================== */
+(function initPromoVideo() {
+  var wrap = document.getElementById('promo-video-wrap');
+  var video = document.getElementById('promo-video');
+  var overlay = document.getElementById('promo-video-overlay');
+  var closeBtn = document.getElementById('promo-video-close');
+
+  if (!wrap || !video || !overlay || !closeBtn) return;
+
+  /* ─────────────────────────────────────────────────
+     MODO BUCLE — silencioso, sin controles
+  ───────────────────────────────────────────────── */
+  function setLoopMode() {
+    video.muted = true;
+    video.loop = true;
+    video.removeAttribute('controls');
+
+    if (video.paused) video.play().catch(function () { });
+
+    // El overlay vuelve a ser visible y a capturar clics
+    overlay.classList.remove('hidden-overlay');
+    closeBtn.hidden = true;
+    wrap.classList.add('loop-mode');
+    wrap.classList.remove('active-mode');
+  }
+
+  /* ─────────────────────────────────────────────────
+     MODO ACTIVO — con sonido y controles nativos
+  ───────────────────────────────────────────────── */
+  function setActiveMode() {
+    // 1. Primero ocultar el overlay (libera pointer-events al video)
+    overlay.classList.add('hidden-overlay');
+    closeBtn.hidden = false;
+    wrap.classList.remove('loop-mode');
+    wrap.classList.add('active-mode');
+
+    // 2. Activar sonido, quitar bucle y agregar controles
+    video.muted = false;
+    video.loop = false;
+    video.setAttribute('controls', '');
+
+    // 3. Reiniciar desde el inicio y reproducir
+    video.currentTime = 0;
+    video.play().catch(function () {
+      // Si el navegador bloquea audio no muted → regresar al bucle
+      video.muted = true;
+      setLoopMode();
+    });
+  }
+
+  /* ─────────────────────────────────────────────────
+     EVENTOS
+  ───────────────────────────────────────────────── */
+
+  // Clic en el OVERLAY → activa modo sonido.
+  // En modo bucle el overlay tiene pointer-events:auto y cubre el video.
+  // En modo activo tiene pointer-events:none → los controles nativos quedan libres.
+  overlay.addEventListener('click', function () {
+    setActiveMode();
+  });
+
+  // Botón X → volver al bucle
+  closeBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setLoopMode();
+  });
+
+  // Al terminar el video → bucle silencioso
+  video.addEventListener('ended', function () {
+    setLoopMode();
+  });
+
+  /* ─────────────────────────────────────────────────
+     INTERSECTION OBSERVER — ahorro de recursos
+     Pausa cuando sale del viewport; reanuda al volver
+  ───────────────────────────────────────────────── */
+  if ('IntersectionObserver' in window) {
+    var visObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Visible: reanudar solo si está en bucle y pausado
+          if (wrap.classList.contains('loop-mode') && video.paused) {
+            video.play().catch(function () { });
+          }
+        } else {
+          // Fuera de pantalla: pausar y resetear si estaba activo
+          if (!video.paused) video.pause();
+          if (wrap.classList.contains('active-mode')) setLoopMode();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    visObs.observe(wrap);
+  }
+
+  /* ─────────────────────────────────────────────────
+     INICIALIZACIÓN
+  ───────────────────────────────────────────────── */
+  wrap.classList.add('loop-mode');
+  closeBtn.hidden = true;
+  // El autoplay+muted del HTML ya arrancó el video; solo aseguramos el estado
 })();

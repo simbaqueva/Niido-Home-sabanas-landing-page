@@ -1868,3 +1868,169 @@ img {
   padding: 0.5rem 0.9rem;
   margin-top: 0.75rem;
 }
+
+/* ============================================================
+   VIDEO PROMOCIONAL — SECCIÓN INCENTIVOS
+   ============================================================ */
+.promo-video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(184, 147, 90, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    0 32px 80px rgba(0, 0, 0, 0.35);
+  background: #000;
+  /* Borde dorado sutil */
+  border: 2px solid rgba(201, 168, 76, 0.4);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.promo-video-wrap:hover {
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.55),
+    0 12px 40px rgba(0, 0, 0, 0.55),
+    0 40px 100px rgba(0, 0, 0, 0.4);
+  border-color: rgba(201, 168, 76, 0.65);
+}
+
+/* Aspecto 16:9 — el video ocupa todo el contenedor */
+.promo-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+  /* Redondeado interno por si el navegador no recorta */
+  border-radius: 1.3rem;
+}
+
+/* Responsive: en móviles pequeños reduce el radio */
+@media (max-width: 480px) {
+  .promo-video-wrap {
+    border-radius: 0.875rem;
+  }
+
+  .promo-video {
+    border-radius: 0.75rem;
+  }
+}
+
+/* ============================================================
+   OVERLAY INTERACTIVO DEL VIDEO
+   "Toca para activar sonido" — se oculta al activar sonido
+   ============================================================ */
+
+/* El overlay captura clics en modo bucle (pointer-events activos) */
+.promo-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.4rem;
+  pointer-events: auto;
+  /* ← captura el clic para activar sonido */
+  cursor: pointer;
+  z-index: 5;
+  transition: opacity 0.35s ease;
+}
+
+/* Hint pill animado */
+.promo-video-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  border-radius: 50px;
+  padding: 0.5rem 1.1rem 0.5rem 0.85rem;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.30;
+  /* ← discreta, ~30% */
+  animation: hintPulse 2.4s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.promo-video-hint-icon {
+  font-size: 1rem;
+  color: var(--nh-gold);
+  line-height: 1;
+}
+
+.promo-video-hint-text {
+  line-height: 1;
+}
+
+/* Pulso sutil del hint — oscila alrededor del 30% de opacidad */
+@keyframes hintPulse {
+
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.38;
+    transform: translateY(-3px);
+  }
+}
+
+/* Estado oculto del overlay (cuando está activo con sonido) */
+.promo-video-overlay.hidden-overlay {
+  opacity: 0;
+  pointer-events: none;
+  /* ← libera los controles nativos del video */
+  cursor: default;
+}
+
+/* ============================================================
+   BOTÓN CERRAR (X) — modo activo con sonido
+   ============================================================ */
+.promo-video-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, border-color 0.25s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.promo-video-close:hover {
+  background: rgba(180, 30, 30, 0.75);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.12);
+}
+
+/* En modo bucle el wrapper NO necesita cursor (lo tiene el overlay) */
+.promo-video-wrap.loop-mode {
+  cursor: default;
+}
+
+/* En modo activo el wrapper tampoco cambia el cursor */
+.promo-video-wrap.active-mode {
+  cursor: default;
+}
