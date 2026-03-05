@@ -497,8 +497,10 @@ img {
 
 .gallery-main img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #f9f6f2;
+  padding: 1rem;
   transition: transform 0.5s ease;
 }
 
@@ -517,8 +519,10 @@ img {
 
 .gallery-thumb img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #f9f6f2;
+  padding: 0.25rem;
   transition: transform 0.3s;
 }
 

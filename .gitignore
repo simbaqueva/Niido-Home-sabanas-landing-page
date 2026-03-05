@@ -3,6 +3,12 @@
 Thumbs.db
 desktop.ini
 
+# Videos no utilizados en la landing
+assets/videos/promo-alma-de-mar.mp4
+
+# Archivos de documentación interna
+CACHE-BUSTING.md
+
 # Editores
 .vscode/
 *.suo
