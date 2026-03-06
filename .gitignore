@@ -1,0 +1,32 @@
+# ==========================================
+# .gitignore — Landing Page Sábanas Niido Home
+# Solo sube: index.html + assets/
+# ==========================================
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores de código
+.vscode/
+.idea/
+*.code-workspace
+
+# Node / npm (por si acaso)
+node_modules/
+package-lock.json
+yarn.lock
+.env
+.env.*
+
+# Archivos de documentación interna
+CACHE-BUSTING.md
+*.md
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+*.swp
+~$*
